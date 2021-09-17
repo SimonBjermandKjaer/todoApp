@@ -87,6 +87,11 @@ export class Todo {
         return new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('jwt') });
     }
 
+    setloginHeader(): HttpHeaders {
+        return new HttpHeaders({ 'Ocp-Apim-Subscription-Key': '9ae76b87569c41b78b56a19c7b0ca1f3' });
+    }
+
+
     getTodos(): Observable<TodoClass[]> {
         this.tokenHeader = this.setTokenHeader();
 
