@@ -4,7 +4,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    // headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Ocp-Apim-Subscription-Key': '9ae76b87569c41b78b56a19c7b0ca1f3' })
 };
 
 @Injectable({
@@ -87,9 +88,9 @@ export class Todo {
         return new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('jwt') });
     }
 
-    setloginHeader(): HttpHeaders {
-        return new HttpHeaders({ 'Ocp-Apim-Subscription-Key': '9ae76b87569c41b78b56a19c7b0ca1f3' });
-    }
+    // setloginHeader(): HttpHeaders {
+    //     return new HttpHeaders({ 'Ocp-Apim-Subscription-Key': '9ae76b87569c41b78b56a19c7b0ca1f3' });
+    // }
 
 
     getTodos(): Observable<TodoClass[]> {
@@ -130,7 +131,7 @@ export class Todo {
     }
 
     login(formData: loginClass): Observable<loginClass> {
-        this.tokenHeader = this.setloginHeader();
+
         return this.http.post<loginClass>(this.loginUrl + '/login/', {
             email: formData.email,
             password: formData.password
