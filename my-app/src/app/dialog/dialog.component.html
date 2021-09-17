@@ -1,0 +1,19 @@
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput [(ngModel)]="data.titel" placeholder="Ex. Languages to learn">
+</mat-form-field>
+
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Description</mat-label>
+    <input matInput [(ngModel)]="data.description" (keyup.enter)="addTodos()" placeholder="Ex. Angular">
+</mat-form-field>
+
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Choose a due date</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="data.dueDate" >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<button mat-raised-button matDialogClose>Cancel</button>
+<button mat-raised-button (click)="addTodos()">Add</button>

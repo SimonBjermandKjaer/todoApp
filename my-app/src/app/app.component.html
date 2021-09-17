@@ -1,0 +1,53 @@
+<mat-toolbar color="primary">
+  <span class="fill-remaining-space">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <button mat-menu-item *ngIf="logins" (click)="openDialog()">
+        <mat-icon>add</mat-icon>
+        <span>Add new task</span>
+      </button>
+      <button mat-menu-item *ngIf="!logins" (click)="openLoginDialog()">
+        <mat-icon>account_circle</mat-icon>
+        <span>Login</span>
+      </button>
+      <button mat-menu-item *ngIf="!logins" (click)="openRegisterDialog()">
+        <mat-icon>manage_accounts</mat-icon>
+        <span>Register</span>
+      </button>
+      <button mat-menu-item *ngIf="logins" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </span>
+  <span class="fill-remaining-space">Todo tasks</span>
+</mat-toolbar>
+
+<div *ngIf="!logins">
+  <h1>Login eller registere sig som bruger</h1>
+</div>
+
+<!-- [ngClass]="item.complete === true ? 'greenColor' : 'redColor'" -->
+<div *ngIf="logins">
+<mat-card class="MatCard" cdkDrag *ngFor="let item of ($data | async)" [ngClass]="item.expirationDate === true ? 'yellowColor' : 'blackColor'">
+  <mat-card-title >
+    {{item.titel}}
+  </mat-card-title>
+  <mat-card-content>
+    {{item.description}}
+  </mat-card-content>
+  <mat-card-content>
+    Date added: {{item.dateAdded | date:'dd/MM/yyyy'}}
+  </mat-card-content>
+  <mat-card-content>
+    Due date: {{item.dueDate | date:'dd/MM/yyyy'}}
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="openEditDialog(item)" mat-raised-button>Edit</button>
+    <button class="completeButton" (click)="completeTask(item)" mat-raised-button>{{item.completed ? 'Uncomplete' : 'Complete'}}</button>
+    <button (click)="deleteTask(item.todoId)" mat-raised-button>Delete</button>
+  </mat-card-actions>
+</mat-card>
+</div>

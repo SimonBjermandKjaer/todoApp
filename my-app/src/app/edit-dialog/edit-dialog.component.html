@@ -1,0 +1,21 @@
+<form>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Title</mat-label>
+    <input name="editTitelInputField" matInput [(ngModel)]="newData.titel" (keyup.enter)="editTasks()">
+  </mat-form-field>
+  
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Description</mat-label>
+    <input matInput [(ngModel)]="newData.description" (keyup.enter)="editTasks()" name="editDescriptionInputField">
+  </mat-form-field>
+  
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="newData.dueDate" name="editDueDateInputField">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker value="newData.dueDate" #picker></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-raised-button matDialogClose>Cancel</button>
+  <button mat-raised-button (click)="editTasks()">Add</button>
+</form>

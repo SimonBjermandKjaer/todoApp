@@ -1,0 +1,63 @@
+:host {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: medium;
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wrapper {
+  text-align: center;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: auto;
+}
+
+label {
+  color: red;
+  font-size: xx-large;
+}
+
+.reset {
+  font-size: xx-large;
+}
+
+mat-card {
+  max-width: 14%;
+  min-width: 10%;
+  cursor: move;
+}
+
+mat-card-title {
+  text-align: center;
+}
+
+.completeButton {
+  width: 40%;
+}
+
+.greenColor {
+  background-color: green;
+}
+
+.redColor {
+  background-color: red;
+}
+
+.blackColor {
+  background-color: black;
+}
+
+.yellowColor {
+  // background-color: yellow;
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  10% {
+    background-color: gray;
+    background-color: red;
+  }
+}

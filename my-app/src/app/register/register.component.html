@@ -1,0 +1,24 @@
+<form>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Firstname</mat-label>
+      <input name="firstnameInputField" [(ngModel)]="registerData.firstName" matInput >
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Lastname</mat-label>
+      <input name="lastnameInputField" [(ngModel)]="registerData.lastName" matInput >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input name="emailInputField" [(ngModel)]="registerData.email" matInput >
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input name="passwordInputField" [(ngModel)]="registerData.password" matInput>
+      </mat-form-field>
+    
+    <button mat-raised-button matDialogClose>Cancel</button>
+    <button mat-raised-button matDialogClose (click)="register()">Add</button>
+  </form>

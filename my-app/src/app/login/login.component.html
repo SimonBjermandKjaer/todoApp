@@ -1,0 +1,14 @@
+<form (NgSubmit)="login()">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="loginData.email" name="emailInputField"   >
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="loginData.password" (keyup.enter)="login()" name="passwordInputField"  >
+      </mat-form-field>
+    
+    <button mat-raised-button matDialogClose>Cancel</button>
+    <button mat-raised-button (click)="login()">Login</button>
+  </form>
