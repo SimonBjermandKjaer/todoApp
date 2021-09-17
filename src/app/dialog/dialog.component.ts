@@ -31,6 +31,7 @@ export class DialogComponent {
     }
 
     this.user.postTodos(this.data).subscribe();
+    this.appComponent.cardCloseToDueDate();
     this.dialog.closeAll();
   }
 }
