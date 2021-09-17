@@ -130,6 +130,7 @@ export class Todo {
     }
 
     login(formData: loginClass): Observable<loginClass> {
+        this.tokenHeader = this.setloginHeader();
         return this.http.post<loginClass>(this.loginUrl + '/login/', {
             email: formData.email,
             password: formData.password
