@@ -5,7 +5,7 @@ import { tap } from 'rxjs/operators';
 
 const httpOptions = {
     // headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    headers: new HttpHeaders({ 'Ocp-Apim-Subscription-Key': '9ae76b87569c41b78b56a19c7b0ca1f3' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Ocp-Apim-Subscription-Key': '9ae76b87569c41b78b56a19c7b0ca1f3' })
 };
 
 @Injectable({
