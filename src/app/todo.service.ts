@@ -85,7 +85,7 @@ export class Todo {
     constructor(private http: HttpClient) { }
 
     setTokenHeader(): HttpHeaders {
-        return new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('jwt') });
+        return new HttpHeaders({ 'Authorization': 'Bearer ' + localStorage.getItem('jwt'), 'Ocp-Apim-Subscription-Key': '9ae76b87569c41b78b56a19c7b0ca1f3' });
     }
 
     // setloginHeader(): HttpHeaders {
