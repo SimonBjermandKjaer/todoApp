@@ -21,41 +21,20 @@ export class AppComponent implements OnInit {
 
   logins = false;
 
-  hej = new TodoClass(0, "", "", false, new Date(), new Date(), false);
-
   constructor(private user: Todo, public dialog: MatDialog, private loginStatus: login) { }
 
   ngOnInit(): void {
-    console.log(this.hej);
     this.loginStatus.loggedIn.subscribe(status => this.getDataIfLoggedIn(status));
 
     if (localStorage.getItem("loginStatus") == "true") {
       this.logins = true;
       this.cardCloseToDueDate();
       this.$data = this.user.getTodos();
-
-      // this.cardCloseToDueDate();
     }
     else {
       this.logins = false;
     }
-
-    // this.$data.pipe(map(dates => {
-    //   for (const date of dates) {
-    //     if (date.dueDate.getUTCDate() <= (dato.getUTCDate() + 1)) {
-    //     date.expirationDate = true
-    //     console.log("true");
-    //   }
-    //   else {
-    //     date.expirationDate = false;
-    //     console.log("false");
-    //   }
-    // }
-    // }));
-
-    // this.cardCloseToDueDate(this.hej);
   }
-
 
   getDataIfLoggedIn(value: boolean): void {
     this.logins = value;
@@ -112,32 +91,20 @@ export class AppComponent implements OnInit {
 
   cardCloseToDueDate(): void {
 
-    // this.$data = this.user.getTodos();
-
     const dato = new Date();
-    console.log(dato);
 
     this.$data.subscribe(data => {
       data.forEach(date => {
-        const hhhh = new Date(date.dueDate);
+        const newDate = new Date(date.dueDate);
 
-        if (hhhh.getDate() > (dato.getDate() + 1)) {
-          console.log("1");
+        if (newDate.getDate() > (dato.getDate() + 1)) {
           date.expirationDate = false
         }
         else {
           date.expirationDate = true;
-          console.log("2");
         }
-
-        console.log(hhhh.getDate());
-        console.log(dato.getDate() + 1);
-        console.log(date.expirationDate);
-        console.log(date);
-
         this.user.changeStatus(date.todoId, date).subscribe();
         this.$data = this.user.getTodos();
-
       })
     })
   }

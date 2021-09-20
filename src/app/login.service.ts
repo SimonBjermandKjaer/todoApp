@@ -19,6 +19,4 @@ export class login {
         this.isLoggedIn = false;
         this.loggedIn.emit(this.isLoggedIn);
     }
-
 }
-

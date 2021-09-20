@@ -17,12 +17,6 @@ export class DialogComponent {
 
   addTodos(): void {
 
-
-    // const newDate = this.data.dueDate.getTimezoneOffset() * 60000;
-    // this.data.dueDate = new Date(this.data.dueDate.getTime() - newDate);
-
-    // this.appComponent.cardCloseToDueDate(this.data);
-
     if (this.data.dueDate.getDate() > (this.data.dateAdded.getDate() + 1)) {
       this.data.expirationDate = false
     }
