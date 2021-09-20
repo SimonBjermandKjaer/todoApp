@@ -11,8 +11,6 @@ import { AppComponent } from '../app.component';
 
 export class DialogComponent {
 
-  hej = new Date();
-
   data = new TodoClass(0, "", "", false, new Date(), new Date(), false);
 
   constructor(private user: Todo, public dialog: MatDialog, public appComponent: AppComponent) { }
@@ -28,7 +26,7 @@ export class DialogComponent {
     //   console.log(2);
     // }
 
-    // this.data.dueDate.setDate(this.data.dueDate.getDate());
+    this.data.dueDate.setDate(this.data.dueDate.getDate() + 1);
 
     if ((this.data.dueDate.getDate() == (this.data.dateAdded.getDate())) || (this.data.dueDate.getDate() == (this.data.dateAdded.getDate() + 1))) {
       if (this.data.dueDate.getMonth() == this.data.dateAdded.getMonth()) {
@@ -50,8 +48,10 @@ export class DialogComponent {
     console.log(this.data.expirationDate);
     console.log(3);
 
-    this.user.postTodos(this.data).subscribe();
     this.appComponent.cardCloseToDueDate();
+
+    this.user.postTodos(this.data).subscribe();
+
     this.dialog.closeAll();
   }
 }
