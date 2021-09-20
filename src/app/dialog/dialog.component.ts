@@ -28,7 +28,7 @@ export class DialogComponent {
     //   console.log(2);
     // }
 
-    this.data.dueDate.setDate(this.data.dueDate.getDate());
+    // this.data.dueDate.setDate(this.data.dueDate.getDate());
 
     if ((this.data.dueDate.getDate() == (this.data.dateAdded.getDate())) || (this.data.dueDate.getDate() == (this.data.dateAdded.getDate() + 1))) {
       if (this.data.dueDate.getMonth() == this.data.dateAdded.getMonth()) {
