@@ -30,7 +30,7 @@
 </div>
 
 <div *ngIf="logins">
-<mat-card class="MatCard" cdkDrag *ngFor="let item of ($data | async)" [ngClass]="(item.expirationDate === true && item.completed === false) ? 'yellowColor' : (item.completed === true && item.expirationDate === true) ? 'greenColor' : (item.completed === true && item.expirationDate === false) ? 'greenColor' : 'blackColor'">
+<mat-card class="card-container" cdkDrag *ngFor="let item of ($data | async)" [ngClass]="(item.expirationDate === true && item.completed === false) ? 'yellowColor' : (item.completed === true && item.expirationDate === true) ? 'greenColor' : (item.completed === true && item.expirationDate === false) ? 'greenColor' : 'blackColor'">
   <mat-card-title >
     {{item.titel}}
   </mat-card-title>
