@@ -28,6 +28,8 @@ export class DialogComponent {
     //   console.log(2);
     // }
 
+    this.data.dueDate.setDate(this.data.dueDate.getDate() + 1);
+
     if ((this.data.dueDate.getDate() == (this.data.dateAdded.getDate())) || (this.data.dueDate.getDate() == (this.data.dateAdded.getDate() + 1))) {
       if (this.data.dueDate.getMonth() == this.data.dateAdded.getMonth()) {
         if (this.data.dueDate.getFullYear() == this.data.dateAdded.getFullYear()) {
@@ -38,8 +40,6 @@ export class DialogComponent {
     else {
       this.data.expirationDate = false;
     }
-
-    this.data.dueDate.setDate(this.data.dueDate.getDate() + 1);
 
     console.log(this.data.dueDate.getDate());
     console.log(this.data.dateAdded.getDate() + 1);
