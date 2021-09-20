@@ -11,6 +11,8 @@ import { AppComponent } from '../app.component';
 
 export class DialogComponent {
 
+  hej = new Date();
+
   data = new TodoClass(0, "", "", false, new Date(), new Date(), false);
 
   constructor(private user: Todo, public dialog: MatDialog, public appComponent: AppComponent) { }
@@ -23,6 +25,8 @@ export class DialogComponent {
     else {
       this.data.expirationDate = true;
     }
+
+    this.data.dueDate.setDate(this.data.dueDate.getDate() + 1);
 
     this.user.postTodos(this.data).subscribe();
     this.appComponent.cardCloseToDueDate();

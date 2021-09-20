@@ -29,7 +29,6 @@
   <h1>Login eller registere sig som bruger</h1>
 </div>
 
-<!-- [ngClass]="item.complete === true ? 'greenColor' : 'redColor'" -->
 <div *ngIf="logins">
 <mat-card class="MatCard" cdkDrag *ngFor="let item of ($data | async)" [ngClass]="(item.expirationDate === true && item.completed === false) ? 'yellowColor' : (item.completed === true && item.expirationDate === true) ? 'greenColor' : (item.completed === true && item.expirationDate === false) ? 'greenColor' : 'blackColor'">
   <mat-card-title >
