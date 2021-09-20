@@ -35,6 +35,7 @@ export class DialogComponent {
       }
     }
 
+
     console.log();
 
     console.log('Due Date:', 'Day:', this.data.dueDate.getDate(), ', Month: ', this.data.dueDate.getMonth());
