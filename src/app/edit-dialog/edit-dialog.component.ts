@@ -27,15 +27,15 @@ export class EditDialogComponent {
     //   this.newData.expirationDate = true;
     // }
 
-    if ((this.data.dueDate.getDate() == (data.getDate())) || (this.data.dueDate.getDate() == (data.getDate() + 1))) {
-      if (this.data.dueDate.getMonth() == data.getMonth()) {
-        if (this.data.dueDate.getFullYear() == data.getFullYear()) {
-          this.data.expirationDate = true;
+    if ((this.newData.dueDate.getDate() == (data.getDate())) || (this.newData.dueDate.getDate() == (data.getDate() + 1))) {
+      if (this.newData.dueDate.getMonth() == data.getMonth()) {
+        if (this.newData.dueDate.getFullYear() == data.getFullYear()) {
+          this.newData.expirationDate = true;
         }
       }
     }
     else {
-      this.data.expirationDate = false;
+      this.newData.expirationDate = false;
     }
 
     this.user.editTodos(this.data.todoId, this.newData).subscribe();
