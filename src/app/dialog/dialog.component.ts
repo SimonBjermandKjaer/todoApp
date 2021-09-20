@@ -34,6 +34,8 @@ export class DialogComponent {
     console.log(this.data.dueDate.getMonth());
     console.log(this.data.dateAdded.getMonth());
 
+    console.log(this.data.expirationDate);
+
     this.user.postTodos(this.data).subscribe();
     this.appComponent.cardCloseToDueDate();
     this.dialog.closeAll();
