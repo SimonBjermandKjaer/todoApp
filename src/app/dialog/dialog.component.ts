@@ -19,12 +19,15 @@ export class DialogComponent {
 
   addTodos(): void {
 
-    if (this.data.dueDate.getDate() > (this.data.dateAdded.getDate() + 1) && (this.data.dueDate.getMonth() > (this.data.dateAdded.getMonth() + 1))) {
+    if (this.data.dueDate.getDate() > (this.data.dateAdded.getDate() + 1) && (this.data.dueDate.getMonth() > (this.data.dateAdded.getMonth()))) {
       this.data.expirationDate = false
     }
     else {
       this.data.expirationDate = true;
     }
+
+    console.log(this.data.dueDate.getMonth());
+    console.log(this.data.dateAdded.getMonth());
 
     this.data.dueDate.setDate(this.data.dueDate.getDate() + 1);
 
