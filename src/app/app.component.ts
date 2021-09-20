@@ -97,12 +97,24 @@ export class AppComponent implements OnInit {
       data.forEach(date => {
         const newDate = new Date(date.dueDate);
 
-        if (newDate.getDate() > (dato.getDate() + 1) && (newDate.getMonth() > (dato.getMonth()))) {
-          date.expirationDate = false
+        // if (newDate.getDate() > (dato.getDate() + 1) && (newDate.getMonth() > (dato.getMonth()))) {
+        //   date.expirationDate = false
+        // }
+        // else {
+        //   date.expirationDate = true;
+        // }
+
+        if ((newDate.getDate() == (dato.getDate())) || (newDate.getDate() == (dato.getDate() + 1))) {
+          if (newDate.getMonth() == dato.getMonth()) {
+            if (newDate.getFullYear() == dato.getFullYear()) {
+              date.expirationDate = true;
+            }
+          }
         }
         else {
-          date.expirationDate = true;
+          date.expirationDate = false
         }
+
         this.user.changeStatus(date.todoId, date).subscribe();
         this.$data = this.user.getTodos();
       })

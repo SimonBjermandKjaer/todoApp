@@ -30,7 +30,7 @@ export class DialogComponent {
 
     if ((this.data.dueDate.getDate() == (this.data.dateAdded.getDate())) || (this.data.dueDate.getDate() == (this.data.dateAdded.getDate() + 1))) {
       if (this.data.dueDate.getMonth() == this.data.dateAdded.getMonth()) {
-        if (this.data.dueDate.getFullYear() == this.data.dateAdded.getMonth()) {
+        if (this.data.dueDate.getFullYear() == this.data.dateAdded.getFullYear()) {
           this.data.expirationDate = true;
         }
       }

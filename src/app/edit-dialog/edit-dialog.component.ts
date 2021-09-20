@@ -19,11 +19,23 @@ export class EditDialogComponent {
     const newDate = this.newData.dueDate.getTimezoneOffset() * 60000;
     this.newData.dueDate = new Date(this.newData.dueDate.getTime() - newDate);
 
-    if (this.newData.dueDate.getDate() > (new Date().getDate() + 1)) {
-      this.newData.expirationDate = false
+    const data = new Date();
+    // if (this.newData.dueDate.getDate() > (new Date().getDate() + 1)) {
+    //   this.newData.expirationDate = false
+    // }
+    // else {
+    //   this.newData.expirationDate = true;
+    // }
+
+    if ((this.data.dueDate.getDate() == (data.getDate())) || (this.data.dueDate.getDate() == (data.getDate() + 1))) {
+      if (this.data.dueDate.getMonth() == data.getMonth()) {
+        if (this.data.dueDate.getFullYear() == data.getFullYear()) {
+          this.data.expirationDate = true;
+        }
+      }
     }
     else {
-      this.newData.expirationDate = true;
+      this.data.expirationDate = false;
     }
 
     this.user.editTodos(this.data.todoId, this.newData).subscribe();
