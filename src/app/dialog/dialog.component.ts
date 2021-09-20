@@ -26,10 +26,13 @@ export class DialogComponent {
       this.data.expirationDate = true;
     }
 
+    this.data.dueDate.setDate(this.data.dueDate.getDate() + 1);
+
+    console.log(this.data.dueDate.getDate());
+    console.log(this.data.dateAdded.getDate() + 1);
+
     console.log(this.data.dueDate.getMonth());
     console.log(this.data.dateAdded.getMonth());
-
-    this.data.dueDate.setDate(this.data.dueDate.getDate() + 1);
 
     this.user.postTodos(this.data).subscribe();
     this.appComponent.cardCloseToDueDate();
