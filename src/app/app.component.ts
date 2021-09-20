@@ -97,7 +97,7 @@ export class AppComponent implements OnInit {
       data.forEach(date => {
         const newDate = new Date(date.dueDate);
 
-        if (newDate.getDate() > (dato.getDate() + 1)) {
+        if (newDate.getDate() > (dato.getDate() + 1) && (newDate.getMonth() > (dato.getMonth()))) {
           date.expirationDate = false
         }
         else {
