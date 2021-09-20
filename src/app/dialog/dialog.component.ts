@@ -26,6 +26,10 @@ export class DialogComponent {
     //   console.log(2);
     // }
 
+    this.data.dueDate = new Date(this.data.dueDate);
+    const newDate = this.data.dueDate.getTimezoneOffset() * 60000;
+    this.data.dueDate = new Date(this.data.dueDate.getTime() - newDate);
+
     this.data.expirationDate = false;
     if ((this.data.dueDate.getDate() == (this.data.dateAdded.getDate())) || (this.data.dueDate.getDate() == (this.data.dateAdded.getDate() + 1))) {
       if (this.data.dueDate.getMonth() == this.data.dateAdded.getMonth()) {
