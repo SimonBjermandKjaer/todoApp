@@ -19,13 +19,24 @@ export class DialogComponent {
 
   addTodos(): void {
 
-    if (this.data.dueDate.getDate() > (this.data.dateAdded.getDate() + 1) && (this.data.dueDate.getMonth() > (this.data.dateAdded.getMonth()))) {
-      this.data.expirationDate = false
-      console.log(1);
+    // if (this.data.dueDate.getDate() > (this.data.dateAdded.getDate() + 1)) {
+    //   this.data.expirationDate = false
+    //   console.log(1);
+    // }
+    // else {
+    //   this.data.expirationDate = true;
+    //   console.log(2);
+    // }
+
+    if ((this.data.dueDate.getDate() == (this.data.dateAdded.getDate())) || (this.data.dueDate.getDate() == (this.data.dateAdded.getDate() + 1))) {
+      if (this.data.dueDate.getMonth() == this.data.dateAdded.getMonth()) {
+        if (this.data.dueDate.getFullYear() == this.data.dateAdded.getMonth()) {
+          this.data.expirationDate = true;
+        }
+      }
     }
     else {
-      this.data.expirationDate = true;
-      console.log(2);
+      this.data.expirationDate = false;
     }
 
     this.data.dueDate.setDate(this.data.dueDate.getDate() + 1);
