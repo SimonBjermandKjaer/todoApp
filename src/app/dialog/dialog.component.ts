@@ -19,7 +19,7 @@ export class DialogComponent {
 
   addTodos(): void {
 
-    if (this.data.dueDate.getDate() > (this.data.dateAdded.getDate() + 1)) {
+    if (this.data.dueDate.getDate() > (this.data.dateAdded.getDate() + 1) && (this.data.dueDate.getMonth() > (this.data.dateAdded.getMonth()))) {
       this.data.expirationDate = false
     }
     else {
