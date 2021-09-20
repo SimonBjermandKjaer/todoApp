@@ -26,8 +26,7 @@ export class DialogComponent {
     //   console.log(2);
     // }
 
-    this.data.dueDate.setDate(this.data.dueDate.getDate());
-
+    this.data.expirationDate = false;
     if ((this.data.dueDate.getDate() == (this.data.dateAdded.getDate())) || (this.data.dueDate.getDate() == (this.data.dateAdded.getDate() + 1))) {
       if (this.data.dueDate.getMonth() == this.data.dateAdded.getMonth()) {
         if (this.data.dueDate.getFullYear() == this.data.dateAdded.getFullYear()) {
@@ -35,18 +34,13 @@ export class DialogComponent {
         }
       }
     }
-    else {
-      this.data.expirationDate = false;
-    }
 
-    console.log(this.data.dueDate.getDate());
-    console.log(this.data.dateAdded.getDate() + 1);
+    console.log();
 
-    console.log(this.data.dueDate.getMonth());
-    console.log(this.data.dateAdded.getMonth());
+    console.log('Due Date:', 'Day:', this.data.dueDate.getDate(), ', Month: ', this.data.dueDate.getMonth());
+    console.log('Date Added: ', this.data.dateAdded.getMonth());
 
-    console.log(this.data.expirationDate);
-    console.log(3);
+    console.log('Expiration Date: ', this.data.expirationDate);
 
     this.appComponent.cardCloseToDueDate();
 
